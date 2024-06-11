@@ -1,0 +1,43 @@
+<div class="shadow p-6">
+    @if (isedit) {
+        <h4>Edit Student</h4>
+    }
+    @else {<h4>Create Student</h4> }
+    
+    <form [formGroup]="studentForm"  (ngSubmit)="save()">
+        <div class="w-full flex flex-warp">
+            <mat-form-field >
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder= "Name" formControlName = "name"/>
+              </mat-form-field>   
+        </div>
+
+        <div class="w-full flex flex-warp">
+            <mat-form-field >
+                <mat-label>DoB</mat-label>
+                <input type="text" matInput placeholder= "dd/mm/yyyy" formControlName = "doB"/>
+              </mat-form-field>   
+        </div>
+
+        <div class="w-full flex flex-warp">
+            <mat-form-field >
+                <mat-label>Address</mat-label>
+                <input type="text" matInput placeholder= "Address" formControlName = "address" />
+              </mat-form-field>   
+        </div>
+
+        <div class="w-full flex flex-warp">
+            <mat-form-field >
+                <mat-label>PhoneNum</mat-label>
+                <input type="text" matInput placeholder= "PhoneNum" formControlName = "phoneNum"/>
+              </mat-form-field>   
+        </div>
+
+        <div>
+            @if(isedit){
+                <button mat-raised-button corlor="primary" [disabled]="!studentForm.valid" >Update</button>
+            }
+            @else {<button mat-raised-button corlor="primary" [disabled]="!studentForm.valid" >Save</button>}
+        </div>
+    </form>
+</div>
